@@ -1,0 +1,25 @@
+data_ingestion:
+  rf_api: "H4q9DQu5MD1pKmGnJGDD"
+  rf_version: 1
+  rf_type: "yolov8"
+  rf_project: "toll-booth-kzuxu"
+  rf_workspace: "ml-rcff8"
+  data_ingestion_dir_name: "data_ingestion"
+
+data_validation:
+  required_file_list:
+    - "train"
+    - "valid"
+    - "data.yaml"
+  data_validation_dir_name: "data_validation"
+  data_validation_status_file: "status.txt"
+
+model_trainer:
+  model_trainer_dir_name: "model_trainer"  
+  pretrained_weight_name: "yolov8n.pt"
+  no_epochs: 1
+  batch_size: 16
+  project_path: "toll_booth_project_runs"
+
+training_pipeline:
+  artifacts_dir: "artifacts"

@@ -6,7 +6,7 @@ from PIL import Image
 import numpy as np
 
 # Load the trained YOLOv8 model
-model_path = "artifacts/toll_booth_project_runs/experiment_1/weights/best.pt"
+model_path = "model\\production\\best.pt"
 # model_path = "large_model.pt"
 model = YOLO(model_path)
 

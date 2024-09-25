@@ -35,7 +35,7 @@ class ModelTrainer:
             epochs=self.no_epochs, 
             save=True, 
             project=self.model_trainer_config.project_path, 
-            name=f"experiment_{read_exp_num()}",
+            name=f"experiment_{read_exp_num()-1}",
             plots=True, 
             device=0, 
             workers=0
@@ -69,7 +69,7 @@ class ModelTrainer:
         
             # Load the pretrained YOLO model
             model = YOLO(self.weight_name)
-            add_wandb_callback(model, enable_model_checkpointing=True)
+            add_wandb_callback(model, enable_model_checkpointing=False)
             yaml_path = os.path.join(self.data_path, "data.yaml")
             # Configure the YAML file
             yaml_path = self.configure_yaml(yaml_path)
@@ -79,7 +79,7 @@ class ModelTrainer:
 
             model_path = os.path.join(
                 self.model_trainer_config.project_path, 
-                f"experiment_{read_exp_num()}", 
+                f"experiment_{read_exp_num()-1}", 
                 "weights", "best.pt"
             )
             

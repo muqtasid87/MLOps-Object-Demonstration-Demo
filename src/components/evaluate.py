@@ -5,7 +5,7 @@ from ultralytics import YOLO
 import os
 
 
-run = wandb.init(name="model_evaluation_and_comparison", anonymous='must')
+run = wandb.init(project="toll_booth", anonymous='must')
 
 #Download latest trained model
 latest = run.use_artifact('muqtasid87-international-islamic-university-malaysia-org/wandb-registry-model/toll_plaza:latest', type='model')
@@ -30,3 +30,5 @@ for files in os.listdir('artifacts\\evaluation'):
 metrics_latest = latest_model.val(data=f"./artifacts/data_ingestion/data-v{DataIngestionConfig.rf_version}/data.yaml", project="./artifacts/evaluation/runs/latest", name = 'val', workers=0, exist_ok = True)
 metrics_production = production_model.val(data=f"./artifacts/data_ingestion/data-v{DataIngestionConfig.rf_version}/data.yaml", project="./artifacts/evaluation/runs/production", name='val', workers=0, exist_ok = True)
 
+
+wandb.finish()

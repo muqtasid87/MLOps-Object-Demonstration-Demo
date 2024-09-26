@@ -51,6 +51,7 @@ class ModelTrainer:
             os.makedirs(self.model_trainer_config.project_path, exist_ok=True)
             
             # Initialize W&B only once
+            
             run = wandb.init(
                 project="toll_booth", 
                 name=f"experiment_{read_exp_num()}",

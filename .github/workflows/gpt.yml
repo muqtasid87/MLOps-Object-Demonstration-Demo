@@ -23,7 +23,7 @@ jobs:
       # Step 3: Authenticate GitHub CLI using PAT
       - name: Authenticate GitHub CLI
         run: |
-          echo "${{ secrets.GH_PAT }}" | gh auth login --with-token
+          echo "${{ secrets.PUSH_TOKEN }}" | gh auth login --with-token
 
       # Step 4: Make some changes (optional step)
       - name: Make some changes

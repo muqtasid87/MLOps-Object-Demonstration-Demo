@@ -3,3 +3,5 @@ roboflow
 ultralytics
 streamlit
 selenium
+schedule
+Pillow

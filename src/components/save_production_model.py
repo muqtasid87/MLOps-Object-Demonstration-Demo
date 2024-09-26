@@ -1,5 +1,6 @@
 import wandb
 import shutil
+import os
 
 #Download latest trained model
 def download_model():
@@ -10,6 +11,11 @@ def download_model():
     shutil.move(model_file, f"{production_dir}/model_{production.version}.pt")
     wandb.finish()
     print(f"Model saved to {production_dir}")
+    
+    
+    old_model_path = f"{production_dir}/model_v{int(production.version[1])-1}.pt"
+    if os.path.exists(old_model_path):
+        os.remove(old_model_path)
 
 
 if __name__=="__main__":

@@ -9,3 +9,5 @@ production_dir = production.download(root=f"model/production/{production.version
 
 
 production = (f"{production_dir}\\best.pt")
+
+print(f"Model saved to {production_dir}")

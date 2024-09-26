@@ -9,3 +9,7 @@ def run_deployment():
         latest.save()
 
     wandb.finish()
+    
+    
+if __name__=="__main__":
+    run_deployment()

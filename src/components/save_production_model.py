@@ -1,6 +1,6 @@
 import wandb
 
-run = wandb.init(name="model_evaluation_and_comparison", anonymous='must')
+run = wandb.init(name="git_download")
 
 #Download latest trained model
 production = run.use_artifact('muqtasid87-international-islamic-university-malaysia-org/wandb-registry-model/toll_plaza:production', type='model')

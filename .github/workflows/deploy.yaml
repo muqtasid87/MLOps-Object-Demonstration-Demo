@@ -1,0 +1,42 @@
+name: Download Production Model
+
+
+on:
+  push:
+    types: "build-inference-server"
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build_inference_server:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    env:
+      WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
+
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - uses: actions/checkout@v3 
+
+
+    - name: Set up Python     
+      uses: actions/setup-python@v4
+      with: 
+        python-version: '3.7.13'
+        cache: 'pip'
+    
+    - name: Install Dependencies
+      run: pip install wandb
+      # run: pip install -r ./.github/workflows/requirements.txt
+
+
+    - name: Login to W&B
+      run: wandb login
+
+    - name: Run download script
+      run: python src\components\save_production_model.py
+
+
+
+

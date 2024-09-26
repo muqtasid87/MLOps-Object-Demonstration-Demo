@@ -1,0 +1,44 @@
+name: GitHub CLI Push Example
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to main branch (adjust as needed)
+
+jobs:
+  push_changes:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Install GitHub CLI (gh)
+      - name: Install GitHub CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install gh -y
+
+      # Step 3: Authenticate GitHub CLI using PAT
+      - name: Authenticate GitHub CLI
+        run: |
+          echo "${{ secrets.GH_PAT }}" | gh auth login --with-token
+
+      # Step 4: Make some changes (optional step)
+      - name: Make some changes
+        run: |
+          echo "Adding a line to the README file" >> README.md
+
+      # Step 5: Commit the changes
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Automated commit via GitHub Actions"
+
+      # Step 6: Push the changes using GitHub CLI
+      - name: Push changes
+        run: |
+          git push origin main

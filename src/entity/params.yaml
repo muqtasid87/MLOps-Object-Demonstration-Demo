@@ -17,7 +17,7 @@ data_validation:
 model_trainer:
   model_trainer_dir_name: "model_trainer"  
   pretrained_weight_name: "yolov8n.pt"
-  no_epochs: 50
+  no_epochs: 1
   batch_size: 16
   project_path: "toll_booth_project_runs"
 

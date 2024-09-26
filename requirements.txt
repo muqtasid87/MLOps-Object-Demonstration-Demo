@@ -1,1 +1,5 @@
 wandb
+roboflow
+ultralytics
+streamlit
+selenium

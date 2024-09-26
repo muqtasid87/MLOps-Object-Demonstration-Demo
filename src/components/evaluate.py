@@ -11,9 +11,13 @@ run = wandb.init(name="model_evaluation_and_comparison", anonymous='must')
 latest = run.use_artifact('muqtasid87-international-islamic-university-malaysia-org/wandb-registry-model/toll_plaza:latest', type='model')
 latest_dir = latest.download(root="artifacts/evaluation/latest")
 
-#Download production model
-production = run.use_artifact('muqtasid87-international-islamic-university-malaysia-org/wandb-registry-model/toll_plaza:production', type='model')
-production_dir = production.download(root="artifacts/evaluation/production")
+#Download production model unless it's the first version of the model added to the registry
+if latest.version != 1:
+    production = run.use_artifact('muqtasid87-international-islamic-university-malaysia-org/wandb-registry-model/toll_plaza:production', type='model')
+    production_dir = production.download(root="artifacts/evaluation/production")
+else:
+    production = latest
+    production_dir = latest_dir
 
 
 latest_model = YOLO(f"{latest_dir}\\best.pt")

@@ -1,0 +1,15 @@
+# .github/workflows/webhook-trigger.yml
+name: Trigger from Webhook
+
+on:
+  repository_dispatch:
+    types: [test_event]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run script
+        run: echo "Webhook triggered GitHub Action!"

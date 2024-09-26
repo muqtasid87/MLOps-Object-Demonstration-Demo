@@ -10,7 +10,6 @@ artifacts/
 log/
 scraped_images/
 wandb/
-model/
 # Distribution / packaging
 .Python
 build/

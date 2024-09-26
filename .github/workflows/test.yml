@@ -36,8 +36,8 @@ jobs:
       run: wandb login
 
     - name: Run download script
-      # run: python src/components/save_production_model.py
-      run: wandb artifact get muqtasid87-international-islamic-university-malaysia-org/wandb-registry-model/toll_plaza:latest
+      run: python src/components/save_production_model.py
+      # run: wandb artifact get muqtasid87-international-islamic-university-malaysia-org/wandb-registry-model/toll_plaza:latest
 
     
     - name: Commit the model to the repo

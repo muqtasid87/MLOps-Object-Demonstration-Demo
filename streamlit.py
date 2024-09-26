@@ -4,10 +4,9 @@ import time
 from ultralytics import YOLO
 from PIL import Image
 import numpy as np
-
+import glob
 # Load the trained YOLOv8 model
-model_path = "model\\production\\best.pt"
-# model_path = "large_model.pt"
+model_path = glob.glob('production_model/*.pt')[0] if glob.glob('production_model/*.pt') else None
 model = YOLO(model_path)
 
 st.subheader("**Live E8 East Coast Highway Toll Plaza Monitoring**")

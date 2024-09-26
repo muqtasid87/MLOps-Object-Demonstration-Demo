@@ -38,6 +38,11 @@ jobs:
     - name: Run download script
       run: python src/components/save_production_model.py
 
-
-
-
+    
+    - name: Commit the model to the repo
+      run: |
+        git config --global user.name 'muqtasid87'
+        git config --global user.email 'muqtasid87@gmail.com'
+        git add .
+        git commit -m "Added the latest production model"
+        git push

@@ -50,4 +50,4 @@ jobs:
           git commit -m "Added the latest production model"
           git push -u origin main
       env:
-          GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
+          GH_TOKEN: ${{ secrets.PUSH_TOKEN }}

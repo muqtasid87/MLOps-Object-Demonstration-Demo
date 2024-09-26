@@ -5,7 +5,7 @@ from ultralytics import YOLO
 import os
 
 
-run = wandb.init(project="toll_booth", anonymous='must')
+run = wandb.init(project="toll_booth", anonymous='must',  id = f"experiment_{read_exp_num()-1}", resume="must")
 
 #Download latest trained model
 latest = run.use_artifact('muqtasid87-international-islamic-university-malaysia-org/wandb-registry-model/toll_plaza:latest', type='model')

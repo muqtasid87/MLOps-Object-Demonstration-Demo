@@ -1,4 +1,5 @@
 from src.components.evaluate import metrics_latest, metrics_production
+from src.utils.main_utils import *
 import wandb
 
 def run_deployment():

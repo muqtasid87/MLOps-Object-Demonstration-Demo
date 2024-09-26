@@ -10,7 +10,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build_inference_server:
-    # The type of runner that the job will run on
+
     runs-on: ubuntu-latest
     env:
       WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
@@ -41,11 +41,11 @@ jobs:
 
     
     - name: Commit changes
-    run: |
-      git config --global user.name "github-actions[bot]"
-      git config --global user.email "github-actions[bot]@users.noreply.github.com"
-      git add .
-      git commit -m "Automated commit message"
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add .
+        git commit -m "Automated commit message"
 
     # Step 4: Push changes using PAT
     - name: Push changes

@@ -40,14 +40,15 @@ jobs:
       # run: wandb artifact get muqtasid87-international-islamic-university-malaysia-org/wandb-registry-model/toll_plaza:latest
 
     
-    - name: Commit the model to the repo
+    - name: Commit changes
+    run: |
+      git config --global user.name "github-actions[bot]"
+      git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      git add .
+      git commit -m "Automated commit message"
+
+    # Step 4: Push changes using PAT
+    - name: Push changes
       run: |
-          
-          git config --global user.name 'muqtasid87'
-          git config --global user.email 'muqtasid87@gmail.com'
-          git config --global user.password "${{ secrets.PUSH_TOKEN }}"
-          git add .
-          git commit -m "Added the latest production model"
-          git push -u origin main
-      env:
-          GH_TOKEN: ${{ secrets.PUSH_TOKEN }}
+        git remote set-url origin https://x-access-token:${{ secrets.PUSH_TOKEN }}@github.com/${{ github.repository }}.git
+        git push origin main 

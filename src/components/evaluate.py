@@ -12,7 +12,7 @@ latest = run.use_artifact('muqtasid87-international-islamic-university-malaysia-
 latest_dir = latest.download(root="artifacts/evaluation/latest")
 
 #Download production model unless it's the first version of the model added to the registry
-if latest.version != 1:
+if latest.version != "v0":
     production = run.use_artifact('muqtasid87-international-islamic-university-malaysia-org/wandb-registry-model/toll_plaza:production', type='model')
     production_dir = production.download(root="artifacts/evaluation/production")
 else:

@@ -47,3 +47,5 @@ jobs:
           git add .
           git commit -m "Added the latest production model"
           git push
+      env:
+          GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
